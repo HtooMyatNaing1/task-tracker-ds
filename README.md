@@ -118,30 +118,32 @@ Performance Benchmarking (Testing Mode)
 ---
 
 ## 🏗 Project Structure
+
+```
 task-tracker/
 │
 ├── include/
-│ ├── task.h
-│ ├── queue.h
-│ ├── linkedlist.h
-│ ├── stack.h
-│ ├── bst.h
-│ └── linear.h
+│   ├── task.h
+│   ├── queue.h
+│   ├── linkedlist.h
+│   ├── stack.h
+│   ├── bst.h
+│   └── linear.h
 │
 ├── src/
-│ ├── main.c
-│ ├── queue.c
-│ ├── linkedlist.c
-│ ├── stack.c
-│ ├── bst.c
-│ └── linear.c
+│   ├── main.c
+│   ├── queue.c
+│   ├── linkedlist.c
+│   ├── stack.c
+│   ├── bst.c
+│   └── linear.c
 │
 ├── benchmark/
-│ └── benchmark.c
+│   └── benchmark.c
 │
 ├── Makefile
 └── README.md
-
+```
 ---
 
 ## 👥 Team Responsibilities
