@@ -93,3 +93,89 @@ Execution time is measured in microseconds for benchmarking.
 ---
 
 ## 🔄 System Workflow
+
+System Initialization
+→ enqueueTask()
+→ insertMemberBST()
+
+Task Assignment
+→ searchMemberBST()
+→ dequeueTask()
+→ insertTask()
+
+Task Completion & Scoring
+→ deleteTask()
+→ pushUndo()
+→ updateMemberBST()
+
+Mistake Reversal (Optional)
+→ Undo()
+
+Performance Benchmarking (Testing Mode)
+→ searchMemberLinearly()
+→ searchMemberBST()
+
+---
+
+## 🏗 Project Structure
+task-tracker/
+│
+├── include/
+│ ├── task.h
+│ ├── queue.h
+│ ├── linkedlist.h
+│ ├── stack.h
+│ ├── bst.h
+│ └── linear.h
+│
+├── src/
+│ ├── main.c
+│ ├── queue.c
+│ ├── linkedlist.c
+│ ├── stack.c
+│ ├── bst.c
+│ └── linear.c
+│
+├── benchmark/
+│ └── benchmark.c
+│
+├── Makefile
+└── README.md
+
+---
+
+## 👥 Team Responsibilities
+
+### Member 1 – Queue + Linked List
+- Implement backlog system
+- Implement active task list
+- Manage shared `Task` structure
+
+### Member 2 – Stack + Memory Management
+- Implement Undo system
+- Handle memory deallocation
+- Prevent memory leaks and handle edge cases
+
+### Member 3 – BST + Linear Search
+- Implement Member tracking system
+- Manage contribution scoring
+- Implement performance comparison logic
+
+### Member 4 – Integration + Benchmark
+- Design CLI interface
+- Integrate all modules
+- Measure execution time
+- Compare BST vs Linear Search performance
+
+---
+
+## ⚙️ Compilation & Execution
+
+Using GCC:
+
+```bash
+gcc src/*.c -o tasktracker
+./tasktracker
+
+make
+./tasktracker
