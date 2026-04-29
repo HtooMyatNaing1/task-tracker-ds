@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 void initTaskBacklog() {
     int choice = 0;
     int n;
