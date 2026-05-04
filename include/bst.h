@@ -12,9 +12,8 @@ typedef struct Member {
 
 void insertMemberBST(char* name);
 Member* searchMemberBST(char* name);
-void searchTaskBST();
 void updateMemberBST(char* name, int points);
-void displayMemberBST(Member* root);
+void displayMemberBST();
 void freeBST();
 
 #endif
