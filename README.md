@@ -1,75 +1,61 @@
-# Task Tracker System (C Data Structures Project)
+# Task Tracker System
 
-## 📖 Project Overview
+Command-line task management system written in C to demonstrate the practical use of fundamental data structures.
 
-The **Task Tracker System** is a command-line based task management application developed in C to demonstrate the practical integration of fundamental data structures.
+## Overview
 
-This system simulates a real-world workflow where tasks are:
+The application simulates a simple workflow where tasks are added to a backlog, assigned to members, completed, recovered if needed, and tracked for contribution performance.
 
-- Added to a backlog
-- Assigned to members
-- Marked as completed
-- Recovered if completed by mistake
-- Tracked for contribution performance
+## Objectives
 
-The project emphasizes modular design, memory management, algorithm efficiency, and collaboration among multiple data structure components.
+- Apply core data structures in one unified system
+- Compare Binary Search Tree and Linear Search performance
+- Demonstrate memory management in C
+- Practice modular programming and team collaboration with GitHub
 
----
+## Data Structures Used
 
-## 🎯 Objectives
-
-- Apply core data structures in a unified system
-- Compare performance between Binary Search Tree and Linear Search
-- Demonstrate proper memory management in C
-- Practice modular programming and team collaboration using GitHub
-
----
-
-## 🧠 Data Structures Used
-
-### 1️⃣ Priority Queue (Backlog Management)
+### Priority Queue for backlog management
 
 Used to manage incoming tasks based on urgency.
 
-**Functions:**
+Functions:
+
 - `enqueueTask()`
 - `dequeueTask()`
 
 Higher urgency tasks are processed first.
 
----
-
-### 2️⃣ Singly Linked List (Active Task List)
+### Singly linked list for active tasks
 
 Used to manage tasks currently being worked on.
 
-**Functions:**
+Functions:
+
 - `insertTask()`
 - `deleteTask()`
 - `displayTask()`
 
 Chosen for dynamic memory flexibility compared to arrays.
 
----
+### Stack for undo support
 
-### 3️⃣ Stack (Undo System)
+Implements a last-in, first-out structure to recover tasks that were completed by mistake.
 
-Implements a Last-In-First-Out (LIFO) structure to allow recovery of mistakenly completed tasks.
+Functions:
 
-**Functions:**
 - `pushUndo()`
 - `Undo()`
 - `freeMemory()`
 
-Instead of permanently deleting completed tasks, they are pushed onto an Undo stack.
+Instead of permanently deleting completed tasks, they are pushed onto an undo stack.
 
----
-
-### 4️⃣ Binary Search Tree (Member Tracking System)
+### Binary Search Tree for member tracking
 
 Used to efficiently track and update member contribution scores.
 
-**Functions:**
+Functions:
+
 - `insertMemberBST()`
 - `searchMemberBST()`
 - `updateMemberBST()`
@@ -77,51 +63,41 @@ Used to efficiently track and update member contribution scores.
 
 Inorder traversal is used to print members in sorted order.
 
----
-
-### 5️⃣ Linear Search (Performance Comparison)
+### Linear search for performance comparison
 
 A baseline linear array implementation is included to compare time complexity with the Binary Search Tree.
 
-**Functions:**
+Functions:
+
 - `insertMemberLinearly()`
 - `searchMemberLinearly()`
 - `updateMemberLinearly()`
 
 Execution time is measured in microseconds for benchmarking.
 
----
+## System Workflow
 
-## 🔄 System Workflow
+1. System initialization
+   - `enqueueTask()`
+   - `insertMemberBST()`
+2. Task assignment
+   - `searchMemberBST()`
+   - `dequeueTask()`
+   - `insertTask()`
+3. Task completion and scoring
+   - `deleteTask()`
+   - `pushUndo()`
+   - `updateMemberBST()`
+4. Mistake reversal, if needed
+   - `Undo()`
+5. Performance benchmarking
+   - `searchMemberLinearly()`
+   - `searchMemberBST()`
 
-System Initialization
-→ enqueueTask()
-→ insertMemberBST()
+## Project Structure
 
-Task Assignment
-→ searchMemberBST()
-→ dequeueTask()
-→ insertTask()
-
-Task Completion & Scoring
-→ deleteTask()
-→ pushUndo()
-→ updateMemberBST()
-
-Mistake Reversal (Optional)
-→ Undo()
-
-Performance Benchmarking (Testing Mode)
-→ searchMemberLinearly()
-→ searchMemberBST()
-
----
-
-## 🏗 Project Structure
-
-```
-task-tracker/
-│
+```text
+task-tracker-ds/
 ├── include/
 │   ├── task.h
 │   ├── queue.h
@@ -129,7 +105,6 @@ task-tracker/
 │   ├── stack.h
 │   ├── bst.h
 │   └── linear.h
-│
 ├── src/
 │   ├── main.c
 │   ├── queue.c
@@ -137,47 +112,33 @@ task-tracker/
 │   ├── stack.c
 │   ├── bst.c
 │   └── linear.c
-│
 ├── benchmark/
 │   └── benchmark.c
-│
 ├── Makefile
 └── README.md
 ```
----
 
-## 👥 Team Responsibilities
+## Team Responsibilities
 
-### Member 1 – Queue + Linked List
-- Implement backlog system
-- Implement active task list
-- Manage shared `Task` structure
+| Member   | Responsibilities                                              |
+| -------- | ------------------------------------------------------------- |
+| Member 1 | Queue and linked list implementation, shared `Task` structure |
+| Member 2 | Stack and memory management, deallocation, edge cases         |
+| Member 3 | BST and linear search, member scoring, performance comparison |
+| Member 4 | CLI integration, module integration, benchmarking             |
 
-### Member 2 – Stack + Memory Management
-- Implement Undo system
-- Handle memory deallocation
-- Prevent memory leaks and handle edge cases
-
-### Member 3 – BST + Linear Search
-- Implement Member tracking system
-- Manage contribution scoring
-- Implement performance comparison logic
-
-### Member 4 – Integration + Benchmark
-- Design CLI interface
-- Integrate all modules
-- Measure execution time
-- Compare BST vs Linear Search performance
-
----
-
-## ⚙️ Compilation & Execution
+## Compilation and Execution
 
 Using GCC:
 
 ```bash
 gcc src/*.c -o tasktracker
 ./tasktracker
+```
 
+Using Make:
+
+```bash
 make
 ./tasktracker
+```
