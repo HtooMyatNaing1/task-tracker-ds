@@ -80,10 +80,11 @@ Supports undo operations.
 
 ```
 project-root/
-│
+├── benchmark/
+│   ├── benchmark.c
 ├── docs/
-│   ├──members_read.md
-│   ├──team_master_guide.md
+│   ├── members_read.md
+│   ├── team_master_guide.md
 │
 ├── include/
 │   ├── bst.h
