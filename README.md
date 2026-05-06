@@ -156,7 +156,13 @@ make
 ### Run
 
 ```bash
-./<output>.exe
+./task_tracker.exe
+```
+
+### Clean
+
+```bash
+make clean
 ```
 
 ---
