@@ -1,144 +1,215 @@
-# Task Tracker System
+# 📌 Task Management System (C Language)
 
-Command-line task management system written in C to demonstrate the practical use of fundamental data structures.
+## 📖 Overview
 
-## Overview
+This project is a modular **Task Management System** implemented in C using fundamental data structures.
 
-The application simulates a simple workflow where tasks are added to a backlog, assigned to members, completed, recovered if needed, and tracked for contribution performance.
+The system manages:
+- Team members
+- Task assignments
+- Backlog handling
+- Undo operations
+- Performance comparison between search algorithms
 
-## Objectives
+Each feature is separated into independent modules to support clean architecture and collaborative development.
 
-- Apply core data structures in one unified system
-- Compare Binary Search Tree and Linear Search performance
-- Demonstrate memory management in C
-- Practice modular programming and team collaboration with GitHub
+---
 
-## Data Structures Used
+## 🚀 Features
 
-### Priority Queue for backlog management
+- Member management using **Binary Search Tree (BST)**
+- Linear search implementation for performance comparison
+- Task management using **Linked List**
+- Backlog system using **Queue (FIFO)**
+- Undo functionality using **Stack (LIFO)**
+- Modular design for team-based development
 
-Used to manage incoming tasks based on urgency.
+---
 
-Functions:
+## 🏗 Data Structure Design
 
-- `enqueueTask()`
-- `dequeueTask()`
+### 1️⃣ Binary Search Tree (BST)
 
-Higher urgency tasks are processed first.
+Used to store and manage team members in sorted order.
 
-### Singly linked list for active tasks
+- Average search complexity: O(log n)
+- Efficient insertion
+- Supports updates and traversal display
 
-Used to manage tasks currently being worked on.
+---
 
-Functions:
+### 2️⃣ Linear Search
 
-- `insertTask()`
-- `deleteTask()`
-- `displayTask()`
+Used to compare search performance with BST.
 
-Chosen for dynamic memory flexibility compared to arrays.
+- Sequential search (O(n))
+- Counts number of comparisons
+- Used for benchmarking
 
-### Stack for undo support
+---
 
-Implements a last-in, first-out structure to recover tasks that were completed by mistake.
+### 3️⃣ Linked List
 
-Functions:
+Stores active tasks dynamically.
 
-- `pushUndo()`
-- `Undo()`
-- `freeMemory()`
+- Dynamic memory allocation
+- Easy insertion and deletion
+- Supports task reassignment
 
-Instead of permanently deleting completed tasks, they are pushed onto an undo stack.
+---
 
-### Binary Search Tree for member tracking
+### 4️⃣ Queue (Backlog)
 
-Used to efficiently track and update member contribution scores.
+Handles pending tasks.
 
-Functions:
+- First-In-First-Out (FIFO)
+- Stores tasks waiting to be assigned
 
-- `insertMemberBST()`
-- `searchMemberBST()`
-- `updateMemberBST()`
-- `displayMemberBST()`
+---
 
-Inorder traversal is used to print members in sorted order.
+### 5️⃣ Stack (Undo System)
 
-### Linear search for performance comparison
+Supports undo operations.
 
-A baseline linear array implementation is included to compare time complexity with the Binary Search Tree.
+- Last-In-First-Out (LIFO)
+- Reverts recent task operations
 
-Functions:
+---
 
-- `insertMemberLinearly()`
-- `searchMemberLinearly()`
-- `updateMemberLinearly()`
+## 📂 Project Structure
 
-Execution time is measured in microseconds for benchmarking.
-
-## System Workflow
-
-1. System initialization
-   - `enqueueTask()`
-   - `insertMemberBST()`
-2. Task assignment
-   - `searchMemberBST()`
-   - `dequeueTask()`
-   - `insertTask()`
-3. Task completion and scoring
-   - `deleteTask()`
-   - `pushUndo()`
-   - `updateMemberBST()`
-4. Mistake reversal, if needed
-   - `Undo()`
-5. Performance benchmarking
-   - `searchMemberLinearly()`
-   - `searchMemberBST()`
-
-## Project Structure
-
-```text
-task-tracker-ds/
+```
+project-root/
+│
+├── docs/
+│   ├──members_read.md
+│   ├──team_master_guide.md
+│
 ├── include/
-│   ├── task.h
-│   ├── queue.h
-│   ├── linkedlist.h
-│   ├── stack.h
 │   ├── bst.h
-│   └── linear.h
+│   ├── linear.h
+│   ├── linkedlist.h
+│   ├── queue.h
+│   ├── stack.h
+│   ├── task.h
+│
 ├── src/
-│   ├── main.c
-│   ├── queue.c
-│   ├── linkedlist.c
-│   ├── stack.c
 │   ├── bst.c
-│   └── linear.c
-├── benchmark/
-│   └── benchmark.c
+│   ├── linear.c
+│   ├── linkedlist.c
+│   ├── main.c (Main Menu)
+│   ├── queue.c
+│   ├── stack.c
+│
+├── LICENSE
 ├── Makefile
-└── README.md
+├── README.md
 ```
 
-## Team Responsibilities
+---
 
-| Member   | Responsibilities                                              |
-| -------- | ------------------------------------------------------------- |
-| Member 1 | Queue and linked list implementation, shared `Task` structure |
-| Member 2 | Stack and memory management, deallocation, edge cases         |
-| Member 3 | BST and linear search, member scoring, performance comparison |
-| Member 4 | CLI integration, module integration, benchmarking             |
+## 👥 Team Responsibilities
 
-## Compilation and Execution
+### Member 1
+- Queue implementation
+- Linked List implementation
 
-Using GCC:
+### Member 2
+- Stack implementation
+- Memory management handling
+
+### Member 3 (Project Lead)
+- Binary Search Tree (BST)
+- Linear Search implementation
+- Performance comparison logic
+
+### Member 4
+- System integration
+- Main program development
+- Final testing and debugging
+
+---
+
+## 🔧 Build Instructions
+
+### Compile
 
 ```bash
-gcc src/*.c -o tasktracker
-./tasktracker
+gcc -Iinclude -o <output>.exe .\src\linear.c .\src\stack.c .\src\queue.c .\src\linkedlist.c .\src\bst.c .\src\main.c
 ```
 
-Using Make:
+### Run
+
+```bash
+./<output>.exe
+```
+
+---
+
+### Compile Using Makefile
 
 ```bash
 make
-./tasktracker
 ```
+
+### Run
+
+```bash
+./<output>.exe
+```
+
+---
+
+## 🌿 Git Workflow
+
+Each member works on their own feature branch:
+
+- Member1-Queue+Linklisted
+- member2
+- Member3
+- Member4-CLI
+
+### Development Process
+
+1. Implement assigned module
+2. Test independently
+3. Push to personal branch
+4. Create Pull Request
+5. Merge after review
+
+---
+
+## 📊 Benchmark Purpose
+
+This project compares:
+
+- BST search efficiency
+- Linear search efficiency
+
+Metrics collected:
+
+- Search success
+- Number of comparisons
+- Performance difference
+
+---
+
+## 🔮 Future Improvements
+
+- File persistence (save/load system state)
+- Priority-based task sorting
+- Full performance report output
+- Improved CLI menu system
+- Enhanced error handling
+
+---
+
+## 🧠 Educational Purpose
+
+This project demonstrates practical usage of:
+
+- Dynamic memory allocation
+- Pointers and structures
+- Multiple data structures integration
+- Modular programming in C
+- Collaborative Git workflow
