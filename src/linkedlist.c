@@ -9,7 +9,7 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-static Node* head = NULL;
+Node* head = NULL;
 
 void insertTask(Task* task, char* assignee) {
     strcpy(task->assignee, assignee);
